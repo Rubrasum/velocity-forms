@@ -3,6 +3,8 @@
 namespace Rubrasum\VelocityForms;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Facades\File;
 
 class VelocityFormServiceProvider extends ServiceProvider
 {
@@ -32,17 +34,15 @@ class VelocityFormServiceProvider extends ServiceProvider
         // Load the package's views, if applicable
         $this->loadViewsFrom(__DIR__ . '/../resources/views', 'velocityforms');
 
-        // Publish configuration, if you have a config file
+        // In your boot method:
         $this->publishes([
-            __DIR__ . '/../config/velocityforms.php' => config_path('velocityforms.php'),
+            __DIR__ . '/../config/velocityforms.php' => Config::get('app.config_path') . '/velocityforms.php',
         ], 'config');
 
-        // Publish assets, such as CSS or JS files
         $this->publishes([
             __DIR__ . '/../resources/assets' => public_path('vendor/velocityforms'),
         ], 'assets');
 
-        // Publish migrations if users need to copy them to their own migrations folder
         $this->publishes([
             __DIR__ . '/../database/migrations' => database_path('migrations'),
         ], 'migrations');
