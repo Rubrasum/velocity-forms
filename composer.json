@@ -3,11 +3,6 @@
     "description": "Basic form management package for front-facing forms on the Inertia/Vue stack for Laravel. Install to add the vue components for admin and the forms themselves, migrations models controllers factories seeders unittests and dusk tests for the forms and all subtables, and routes for user submission and admin pages. The goal for development is to be able to seemlessly add form management to your Laravel site's admin quickly while remaining an open-ended solution with predictable early stage design choices (i.e. hold on tight). Development is here -> \"Can install on any project\" ->- \"Can seed and display an example on any project\" -<>- \"Can integrate Unit and Dusk tests on any project\" -<>-",
     "type": "library",
     "license": "This work is licensed under a Creative Commons Attribution 4.0 International License.",
-    "autoload": {
-        "psr-4": {
-            "Rubrasum\\VelocityForms\\": "src/"
-        }
-    },
     "authors": [
         {
             "name": "Rubrasum",
@@ -15,5 +10,21 @@
         }
     ],
     "minimum-stability": "stable",
-    "require": {}
+    "require": {
+        "php": "^8.2",
+        "illuminate/support": "^9.0|^10.0",
+        "illuminate/database": "^9.0|^10.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Rubrasum\\VelocityForms\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Rubrasum\\VelocityForms\\VelocityFormServiceProvider"
+            ]
+        }
+    }
 }
