@@ -30,5 +30,21 @@ class VelocityFormServiceProvider extends ServiceProvider
 
         // Load the package's routes, if applicable
         $this->loadRoutesFrom(__DIR__ . '/../routes/web.php');
+
+        // Load the package's views, if applicable
+        $this->loadViewsFrom(__DIR__ . '/../resources/views', 'velocityforms');
+
+        // In your boot method:
+//        $this->publishes([
+//            __DIR__ . '/../config/velocityforms.php' => Config::get('app.config_path') . '/velocityforms.php',
+//        ], 'config');
+//
+//        $this->publishes([
+//            __DIR__ . '/../resources/assets' => public_path('vendor/velocityforms'),
+//        ], 'assets');
+//
+//        $this->publishes([
+//            __DIR__ . '/../database/migrations' => database_path('migrations'),
+//        ], 'migrations');
     }
 }
