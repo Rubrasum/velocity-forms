@@ -2,9 +2,8 @@
 
 namespace Rubrasum\VelocityForms;
 
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\ServiceProvider;
-use Illuminate\Support\Facades\Config;
-use Illuminate\Support\Facades\File;
 
 class VelocityFormServiceProvider extends ServiceProvider
 {
@@ -16,6 +15,10 @@ class VelocityFormServiceProvider extends ServiceProvider
     public function register()
     {
         // Register bindings, if any
+        // Merge the package's config file
+        $this->mergeConfigFrom(
+            __DIR__.'/../config/velocityforms.php', 'velocityforms'
+        );
     }
 
     /**
@@ -33,6 +36,26 @@ class VelocityFormServiceProvider extends ServiceProvider
 
         // Load the package's views, if applicable
         $this->loadViewsFrom(__DIR__ . '/../resources/views', 'velocityforms');
+
+
+        // Register the package's publishable resources
+        if ($this->app->runningInConsole()) {
+            $this->publishes([
+                __DIR__ . '/../config/velocityforms.php' => App::configPath('velocityforms.php'),
+            ], 'velocityforms-config');
+
+            $this->publishes([
+                __DIR__ . '/../resources/views' => App::resourcePath('views/vendor/velocityforms'),
+            ], 'velocityforms-views');
+
+            $this->publishes([
+                __DIR__ . '/../dist' => App::publicPath('vendor/velocity-forms'),
+            ], 'velocityforms-assets');
+
+            $this->publishes([
+                __DIR__ . '/../database/migrations/' => App::databasePath('migrations'),
+            ], 'velocityforms-migrations');
+        }
 
         // In your boot method:
 //        $this->publishes([
