@@ -2,9 +2,9 @@
 
 namespace Rubrasum\VelocityForms\Controllers;
 
-use App\Models\VelocityObject;
-use App\Http\Requests\VelocityObjectStoreRequest;
-use App\Http\Requests\VelocityObjectUpdateRequest;
+use Rubrasum\VelocityForms\Models\VelocityObject;
+use Rubrasum\VelocityForms\Http\Requests\VelocityObjectStoreRequest;
+use Rubrasum\VelocityForms\Http\Requests\VelocityObjectUpdateRequest;
 use Inertia\Inertia;
 
 class VelocityObjectController extends Controller

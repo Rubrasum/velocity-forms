@@ -1,6 +1,6 @@
 <?php
 
-namespace Rubrasum\VelocityForms\Requests;
+namespace Rubrasum\VelocityForms\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 

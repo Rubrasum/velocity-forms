@@ -2,9 +2,9 @@
 
 namespace Rubrasum\VelocityForms\Controllers;
 
-use App\Models\VelocitySubmissionMeta;
-use App\Http\Requests\VelocitySubmissionMetaStoreRequest;
-use App\Http\Requests\VelocitySubmissionMetaUpdateRequest;
+use Rubrasum\VelocityForms\Models\VelocitySubmissionMeta;
+use Rubrasum\VelocityForms\Http\Requests\VelocitySubmissionMetaStoreRequest;
+use Rubrasum\VelocityForms\Http\Requests\VelocitySubmissionMetaUpdateRequest;
 use Inertia\Inertia;
 
 class VelocitySubmissionMetaController extends Controller

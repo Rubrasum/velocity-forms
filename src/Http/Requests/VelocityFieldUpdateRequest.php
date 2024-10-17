@@ -1,10 +1,10 @@
 <?php
 
-namespace Rubrasum\VelocityForms\Requests;
+namespace Rubrasum\VelocityForms\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class VelocityFieldStoreRequest extends FormRequest
+class VelocityFieldUpdateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,8 +24,8 @@ class VelocityFieldStoreRequest extends FormRequest
     {
         return [
             'form_id' => 'required|exists:velocity_forms,id', // Ensure form exists
-            'key' => 'required|string|unique:velocity_fields,key|max:255', // Field key should be unique
-            'type' => 'required|string|max:255', // Field type, e.g., text, email, etc.
+            'key' => 'required|string|max:255|unique:velocity_fields,key,' . $this->route('velocity_field')->id, // Ensure uniqueness but allow current field
+            'type' => 'required|string|max:255', // Field type
             'order' => 'nullable|integer', // Optional field order
         ];
     }

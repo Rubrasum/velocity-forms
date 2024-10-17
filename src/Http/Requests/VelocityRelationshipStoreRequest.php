@@ -1,10 +1,10 @@
 <?php
 
-namespace Rubrasum\VelocityForms\Requests;
+namespace Rubrasum\VelocityForms\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class VelocityRelationshipUpdateRequest extends FormRequest
+class VelocityRelationshipStoreRequest extends FormRequest
 {
     public function authorize(): bool
     {

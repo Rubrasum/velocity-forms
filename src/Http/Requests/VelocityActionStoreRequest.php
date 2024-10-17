@@ -1,10 +1,10 @@
 <?php
 
-namespace Rubrasum\VelocityForms\Requests;
+namespace Rubrasum\VelocityForms\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class VelocitySubmissionStoreRequest extends FormRequest
+class VelocityActionStoreRequest extends FormRequest
 {
     public function authorize(): bool
     {
@@ -15,8 +15,8 @@ class VelocitySubmissionStoreRequest extends FormRequest
     {
         return [
             'form_id' => 'required|exists:velocity_forms,id', // Ensure form exists
-            'user_id' => 'nullable|exists:users,id', // If submission is tied to a user
-            'status' => 'required|string|max:255', // Status of the submission
+            'key' => 'required|string|unique:velocity_actions,key|max:255', // Unique action key
+            'settings' => 'required|json', // Action settings must be JSON
         ];
     }
 }

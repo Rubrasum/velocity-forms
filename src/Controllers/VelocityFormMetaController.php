@@ -2,8 +2,8 @@
 
 namespace Rubrasum\VelocityForms\Controllers;
 
-use App\Models\VelocityFormMeta;
-use App\Models\VelocityForm;
+use Rubrasum\VelocityForms\Models\VelocityFormMeta;
+use Rubrasum\VelocityForms\Models\VelocityForm;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 

@@ -2,9 +2,9 @@
 
 namespace Rubrasum\VelocityForms\Controllers;
 
-use App\Models\VelocityRelationship;
-use App\Http\Requests\VelocityRelationshipStoreRequest;
-use App\Http\Requests\VelocityRelationshipUpdateRequest;
+use Rubrasum\VelocityForms\Models\VelocityRelationship;
+use Rubrasum\VelocityForms\Http\Requests\VelocityRelationshipStoreRequest;
+use Rubrasum\VelocityForms\Http\Requests\VelocityRelationshipUpdateRequest;
 use Inertia\Inertia;
 
 class VelocityRelationshipController extends Controller
